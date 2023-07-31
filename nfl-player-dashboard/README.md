@@ -17,6 +17,8 @@
 - Wishlist:
 	- Functionality to calculate selected player's fantasy football point totals based on custom scoring formats
 
+![image](https://github.com/thealexvu/portfolio/assets/12503011/41201b61-7c1a-490c-806e-2af3cacc4961)
+
 ## Data Collection
 - The statistics to be used will be for the previous 2 seasons (2021 - 2022), which can be found from Pro Football Reference: https://www.pro-football-reference.com
 	- For example, the 2022 Passing stats for all players can be found at https://www.pro-football-reference.com/years/2022/passing.htm
