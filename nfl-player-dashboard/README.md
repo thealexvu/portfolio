@@ -1,6 +1,20 @@
-# NFL Player Statistics for Fantasy Football
+# 🏈 NFL Player Statistics for Fantasy Football
 
-*Last Updated: July 30, 2023*
+*Last Updated: July 31, 2023*
+
+## Usage:
+- Select a player or team defense from the *Select Player* dropdown list
+	- The player's information and selected statistics are displayed in the tables
+	- The selected statistics will dynamically change based on the player's position
+- Select a Fantasy Football Scoring Method to calculate the selected player's total fantasy football points for the seasons listed.
+	- The options include Standard (no points/reception), Half PPR (0.5 points per reception), and Full PPR (1 point per reception)
+- In the Player Statistics table, there are two custom columns that can be used to view other statistical categories for the player, based on his position.
+- In the League Average table, the user can select to compare the selected player's statistics with the entire league, or only players of his same position.
+	- Additionally, the user can enter a minimum numeric qualifier for any of the listed statistics to compare the selected player with other players of similar quality.
+- Data visualization is provided that displays the selected player's fantasy football performance as compared to the league average.
+	- Additionally, there are column charts for each listed statistical category that compares the selected player with the league average. This will dynamically change based on the selected player and his position.
+
+![image](https://github.com/thealexvu/portfolio/assets/12503011/41201b61-7c1a-490c-806e-2af3cacc4961)
 
 ## Purpose
 - In anticipation of the 2023 NFL Fantasy Football season, I want to create a dashboard in Microsoft Excel that can display all position-relevant statistics for any given player from previous seasons.
@@ -16,8 +30,6 @@
 	- Dynamic table showing similar players based on selected metric
 - Wishlist:
 	- Functionality to calculate selected player's fantasy football point totals based on custom scoring formats
-
-![image](https://github.com/thealexvu/portfolio/assets/12503011/41201b61-7c1a-490c-806e-2af3cacc4961)
 
 ## Data Collection
 - The statistics to be used will be for the previous 2 seasons (2021 - 2022), which can be found from Pro Football Reference: https://www.pro-football-reference.com
@@ -77,5 +89,37 @@
 
 ## Creating the Dashboard
 - Create Player Selection
-	- Use data validation as a list with the source being the `Player` column from **Players** worksheet
+	- Use data validation as a list with the source being the `Player` column from **Players** worksheet (includes the `Defense` column for team defenses from the **Defense** worksheet)
 	- Define name of *SelectedPlayer* to the player selection cell
+- Add basic information for *SelectedPlayer* 's team, age, and position.
+	- Define name of *Position* as *SelectedPlayer* 's position
+- Add table of *SelectedPlayer* 's statistics that are relevant for fantasy football purposes.
+	- Ideally, all statistics for a specific position would live in the relevant worksheet (i.e., all QB stats in the **Passing** worksheet), but QBs also have Rushing stats, and RBs have Receiving stats, so the selected statistic column headers will need to be more hard-coded rather than fully dynamic.
+	- QBs
+		- Pass Yards, Pass TDs, Pass Interceptions, Rush Yards, Rush TDs
+	- RBs
+		- Rush Yards, Rush TDs, Receptions, Receiving Yards, Receiving TDs, Fumbles
+	- WRs/TEs
+		- Receptions, Receiving Yards, Receiving TDs
+	- Ks
+		- FGM, XPM
+	- DEF
+		- Points Allowed, Pass TDs Allowed, Rush TDs Allowed, Takeaways
+- Add two table columns to allow for custom selection of player's statistics
+	- For now, this will be resigned to the SelectedPlayer's position
+		- If SelectedPlayer is QB, the custom selections will only be for the Passing statistics
+		- If SelectedPlayer is RB, the custom selections will only be for the Rushing statistics
+	- **TODO:** Allow for this custom selector to be dynamic across multiple worksheets
+- Calculate the average for other players in the league for each of the SelectedPlayer's statistics
+	- On the initial passthrough, this average included every eligible player in the dataset, which skewed the results and may not have been a helpful metric to use.
+		- Ex: There were many RBs who did not have much playing time and had minimal numbers for the statistical categories, which brought the average down
+	- To counter this, I've added a custom entry box and a data-validated list selector of the current statistics so that the user of the dashboard can set a minimum numeric qualifier for a given statistic.
+		- This lets the user compare the Selected Player's statistics to other players who are starter-level players, allowing for a more even comparison between statistics.
+	- **TODO?:** Allow for a maximum qualifier?
+- Add data visualization to display statistics for Selected Player as compared to League Average
+	- For each statistic, compare the player's statistics vs. the league average, using column charts
+- Add functionality to select fantasy football scoring system and display the Selected Player's fantasy football point totals
+	- The scoring systems to be used are Standard, Half PPR, Full PPR (taken from Yahoo Sports fantasy football default scoring)
+	- Create new tables to display the fantasy football point totals for each statistic, as well as for the league average
+	- Create a bar chart displaying the Selected Player's fantasy football point totals as compared to the league average
+	- Create a pie chart to display the ratio of fantasy football points for each of the player's statistical categories
