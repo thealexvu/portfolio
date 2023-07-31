@@ -18,6 +18,8 @@ My goal is to cultivate a career path in which I am able to more closely align m
 ***
 ### 🏈 NFL Player Statistics Dashboard for Fantasy Football
 
+![image](https://github.com/thealexvu/portfolio/assets/12503011/7c18a833-2595-47c5-9ff6-c5dcba6d75f5)
+
 **Primary Tool:** Microsoft Excel
 
 **Demonstrated Skills**: Reference Functions (VLOOKUP, XLOOKUP, INDIRECT), Data Validation (lists), Charts (Bar, Column), Tables (structured reference using table headers)
@@ -31,3 +33,5 @@ Data visualization is provided and dynamically changes based on the selected set
 This allows you to easily decipher how the selected player performed as compared to the league average.
 
 **Input:** Player Selection, Fantasy Scoring System (Standard, Half PPR, Full PPR), Compare Against League/Position, Minimum Qualifier, and two Custom Stat Metrics.
+
+![image](https://github.com/thealexvu/portfolio/assets/12503011/33f20dfe-cd42-4dfd-87ae-78af5fb58536)
